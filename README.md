@@ -15,13 +15,19 @@ If you don't want to use them, you can disable them in the CMakeLists.txt.
 ## Running
 
 Create docker image:
+```
 docker build -t flow_cutter .
+```
 
 Export map using importer tools:
+```
 sims run -d "sbt \"run routingkit-exporter --map-url s3://simacan-maps/main/deployments/latest-prod-b/multinet.ref -o nld -z nld\""
+```
 
 Create order file:
+```
 docker run -v ./nld:/map:rw docker.io/library/flow_cutter /map/ /map/order
+```
 
 ## Building
 
