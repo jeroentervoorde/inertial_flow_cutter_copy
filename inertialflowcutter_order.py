@@ -2,7 +2,7 @@ import subprocess
 import sys
 
 
-binary_path = "/app/build/"
+binary_path = "/app/tool/build/"
 console = binary_path + "console"
 
 def save_inertialflowcutter_cch_order(G, order_path):
@@ -31,12 +31,16 @@ def save_inertialflowcutter_cch_order(G, order_path):
     args.append("sort_arcs")
 
     args.append("flow_cutter_set")
+    args.append("distance_ordering_cutter_count")
+    args.append("0")
+
+    args.append("flow_cutter_set")
     args.append("geo_pos_ordering_cutter_count")
     args.append("8")                                                    #should be multiple of 4. otherwise the four standard directions form the Inertial Flow paper are not chosen.
 
     args.append("flow_cutter_set")
     args.append("thread_count")
-    args.append("8")                                                    #use more parallelism!
+    args.append("16")                                                    #use more parallelism!
 
     args.append("report_time")
     args.append("reorder_nodes_in_accelerated_flow_cutter_cch_order")

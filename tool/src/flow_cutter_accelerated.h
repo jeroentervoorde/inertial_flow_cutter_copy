@@ -1265,7 +1265,6 @@ namespace flow_cutter_accelerated{
 				std::nth_element(node_order.begin() + max_bulk + 1, node_order.end() - (max_bulk + 1), node_order.end(), comp);
 				std::sort(node_order.end() - (max_bulk + 1), node_order.end(), comp);
 				time += get_micro_time();
-				std::cout << "sort took " << time/1000 << " ms" << std::endl;
 				{
 #ifndef NDEBUG
 					std::sort(node_order.begin(), node_order.end(), comp);
